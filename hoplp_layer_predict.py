@@ -782,7 +782,7 @@ if __name__ == '__main__':
     algo_array_sota = ["cn_weight","pa_weight","jc_weight","aa_weight","ra_weight",
                        "cc_weight","local_path_weight","nsilr_mul","madm_mul",
                        "hoplp_mul"]
-    iterations = 50
+    iterations = 100
     file_name_array = ['Vickers-Chan-7thGraders', 'Kapferer-Tailor-Shop',
                         'Lazega-Law-Firm','CKM-Physicians-Innovation']
     dataset_info(file_name_array)
