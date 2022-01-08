@@ -1,4 +1,4 @@
-##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
+##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for MNERLP-MUl for link prediction in multiplex networks
 
 import networkx as nx
 import numpy as np
