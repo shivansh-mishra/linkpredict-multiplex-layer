@@ -32,7 +32,6 @@ if __name__ == '__main__':
         multiplex_graph.add_nodes_from(nodes)
         multiplex_graph_adj = np.zeros((len(nodes), len(nodes)))
         multiplex_graph_wt = np.zeros((len(nodes), len(nodes)))
-        multiplex_graph_wt_shopi = np.zeros((len(nodes), len(nodes)))
         no_layers = len(layers)
         full_graph = nx.Graph()
         full_graph.add_nodes_from(nodes)
@@ -49,12 +48,9 @@ if __name__ == '__main__':
                 node2_index = nodes.index(node2)
                 multiplex_graph_adj[node1_index][node2_index] = 1
                 multiplex_graph_adj[node2_index][node1_index] = 1
-                multiplex_graph_wt[node1_index][node2_index] += 1
-                multiplex_graph_wt[node2_index][node1_index] += 1
-                multiplex_graph_wt_shopi[node1_index][node2_index] += 1 / layer_edge_no[i]
-                multiplex_graph_wt_shopi[node2_index][node1_index] += 1 / layer_edge_no[i]
+                multiplex_graph_wt[node1_index][node2_index] += 1 / layer_edge_no[i]
+                multiplex_graph_wt[node2_index][node1_index] += 1 / layer_edge_no[i]
         multiplex_graph_wt = multiplex_graph_wt / len(layers)
-        multiplex_graph_wt_shopi = multiplex_graph_wt_shopi / len(layers)
         nodes_all = nodes
         score = (all_edge_no - layer_edge_no[layer_no])/all_edge_no
         starttime_aup = time.time()
@@ -77,12 +73,12 @@ if __name__ == '__main__':
             if algo in ["cn_weight","pa_weight","jc_weight","ra_weight","aa_weight",
                         "local_path_weight","cc_weight","hoplp_mul"]:
                 if algo not in ["hoplp_mul"]:
-                    avg_array = avg_seq_all(all_graphs[layer_no], layer_no, score, multiplex_graph_wt,
-                                        nodes_all, file_name, i, algo, iterations)
+                    avg_array = avg_seq_all(all_graphs[layer_no], layer_no, score,
+                                            multiplex_graph_wt, nodes_all, file_name, i, algo, iterations)
                 else :
                     avg_array = avg_seq_all(all_graphs[layer_no], layer_no, score,
-                                             multiplex_graph_wt_shopi, nodes_all, file_name, i, algo, iterations)
-            elif algo in ["madm_mul","nsilr_mul","lpis_mul"]:
+                                             multiplex_graph_wt, nodes_all, file_name, i, algo, iterations)
+            elif algo in ["madm_mul","nsilr_mul"]:
                 avg_array = avg_sota(all_graphs, layer_no, no_layers, nodes_all, file_name, i, algo, iterations)
             else:
                 print("unidentified algo = "+str(algo))
@@ -784,7 +780,7 @@ if __name__ == '__main__':
                        "hoplp_mul"]
     iterations = 100
     file_name_array = ['Vickers-Chan-7thGraders', 'Kapferer-Tailor-Shop',
-                        'Lazega-Law-Firm','CKM-Physicians-Innovation']
+                        'CKM-Physicians-Innovation']
     dataset_info(file_name_array)
     aupgraph_control(file_name_array,algo_array_sota,15,0.5,iterations)
     result_parser_combine(file_name_array,algo_array_sota)
