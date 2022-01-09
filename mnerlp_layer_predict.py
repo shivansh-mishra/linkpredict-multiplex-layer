@@ -1,4 +1,4 @@
-##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for MNERLP-MUl for link prediction in multiplex networks
+##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
 import networkx as nx
 import numpy as np
@@ -33,7 +33,6 @@ if __name__ == '__main__':
         multiplex_graph.add_nodes_from(nodes)
         multiplex_graph_adj = np.zeros((len(nodes), len(nodes)))
         multiplex_graph_wt = np.zeros((len(nodes), len(nodes)))
-        multiplex_graph_wt_shopi = np.zeros((len(nodes), len(nodes)))
         no_layers = len(layers)
         full_graph = nx.Graph()
         full_graph.add_nodes_from(nodes)
@@ -52,10 +51,7 @@ if __name__ == '__main__':
                 multiplex_graph_adj[node2_index][node1_index] = 1
                 multiplex_graph_wt[node1_index][node2_index] += 1
                 multiplex_graph_wt[node2_index][node1_index] += 1
-                multiplex_graph_wt_shopi[node1_index][node2_index] += 1 / layer_edge_no[i]
-                multiplex_graph_wt_shopi[node2_index][node1_index] += 1 / layer_edge_no[i]
         multiplex_graph_wt = multiplex_graph_wt / len(layers)
-        multiplex_graph_wt_shopi = multiplex_graph_wt_shopi / len(layers)
         nodes_all = nodes
         score = (all_edge_no - layer_edge_no[layer_no])/all_edge_no
         starttime_aup = time.time()
@@ -82,7 +78,7 @@ if __name__ == '__main__':
                                         nodes_all, file_name, i, algo, iterations)
                 else :
                     avg_array = avg_seq_all(all_graphs[layer_no], layer_no, score,
-                                             multiplex_graph_wt_shopi, nodes_all, file_name, i, algo, iterations)
+                                             multiplex_graph_wt, nodes_all, file_name, i, algo, iterations)
             elif algo in ["madm_mul","nsilr_mul"]:
                 avg_array = avg_sota(all_graphs, layer_no, no_layers, nodes_all, file_name, i, algo, iterations)
             else:
