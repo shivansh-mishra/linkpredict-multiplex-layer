@@ -24,6 +24,8 @@ if __name__ == '__main__':
 
 
     def auprgraph (all_graphs,layers,layer_no,nodes,algo,file_name,tao,theta,iterations):
+        ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
+
         print("for algo - "+str(algo))
         file_write_name = './multiplex_data/result_layer/'+algo+'/' + file_name + "_"+\
                           str(layer_no)+".txt"
@@ -147,6 +149,7 @@ if __name__ == '__main__':
 
     def avg_seq_all(graph_layer, layer_no, score, adj_wt, nodes_all, file_name, ratio, algo,
                     iterations, theta=0.5, tao=10, alpha1=0.3, alpha2=0.7) :
+        ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
         start_time_ratio = time.time()
         aupr = 0
@@ -302,6 +305,7 @@ if __name__ == '__main__':
 
 
     def avg_sota(all_graphs, layer_no, layers, nodes_all, file_name, ratio, algo, iterations) :
+        ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
         start_time_ratio = time.time()
         aupr = 0
@@ -435,6 +439,7 @@ if __name__ == '__main__':
 
 
     def aupgraph_control(file_name_array, algo_array, tao, theta, iterations = 10):
+        ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
         file_write_name = './multiplex_data/result_layer/current.txt'
         os.makedirs(os.path.dirname(file_write_name), exist_ok=True)
@@ -482,6 +487,7 @@ if __name__ == '__main__':
 
 
     def result_parser_combine(file_name_array,algo_all):
+        ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
         for file_name in file_name_array:
             print("reading dataset = " + str(file_name))
@@ -618,6 +624,7 @@ if __name__ == '__main__':
 
 
     def dataset_info(file_name_array):
+        ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
         file_write_name = "./multiplex_data/layer_info/layer_info.xls"
         os.makedirs(os.path.dirname(file_write_name), exist_ok=True)

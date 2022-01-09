@@ -2,10 +2,6 @@ import networkx as nx
 import numpy as np
 import math
 
-var_dict = {}
-TW = {}
-nodes_per_label = {}
-cluster_distance = {}
 
 def normalize(n):
     max = 0
@@ -25,6 +21,7 @@ def normalize(n):
 
 
 def cn_weight(graph):
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     adj = nx.adjacency_matrix(graph).todense()
     common = np.zeros((len(adj),len(adj)))
@@ -40,6 +37,7 @@ def cn_weight(graph):
 
 
 def jc_weight(graph):
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     adj = nx.adjacency_matrix(graph).todense()
     common = np.zeros((len(adj), len(adj)))
@@ -64,6 +62,7 @@ def jc_weight(graph):
 
 
 def pa_weight(graph):
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     adj = nx.adjacency_matrix(graph).todense()
     common = np.zeros((len(adj),len(adj)))
@@ -85,6 +84,7 @@ def pa_weight(graph):
 
 
 def aa_weight(graph):
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     adj = nx.adjacency_matrix(graph).todense()
     common = np.zeros((len(adj),len(adj)))
@@ -107,6 +107,7 @@ def aa_weight(graph):
 
 
 def ra_weight(graph):
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     adj = nx.adjacency_matrix(graph).todense()
     common = np.zeros((len(adj),len(adj)))
@@ -128,6 +129,7 @@ def ra_weight(graph):
 
 
 def local_path_weight(graph,parameter=0.05):
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     adj = nx.adjacency_matrix(graph).todense()
     common = np.zeros((len(adj), len(adj)))
@@ -150,6 +152,7 @@ def local_path_weight(graph,parameter=0.05):
 
 
 def cc_weight (graph) :
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     adj = nx.adjacency_matrix(graph).todense()
     triangles = nx.triangles(graph)
@@ -183,6 +186,7 @@ def cc_weight (graph) :
 
 
 def shopi_weight_log (graph, param=0.01, reg_inf_arr=[3,4]):
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     print("shopi weight algorithm with log")
     adj = nx.adjacency_matrix(graph).todense()
@@ -223,6 +227,8 @@ def shopi_weight_log (graph, param=0.01, reg_inf_arr=[3,4]):
 
 
 def madm_mul (graph, all_graphs, layer_no, layers, nodes_all) :
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
+
     layers = int(layers)
     all_graphs[layer_no] = graph
     print("running madm mul sota for layer - "+str(layer_no)+
@@ -338,6 +344,8 @@ def madm_mul (graph, all_graphs, layer_no, layers, nodes_all) :
 
 
 def nsilr_mul (graph, all_graphs, layer_no, layers, nodes_all, psi_param = 0.5) :
+    ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
+
     layers = int(layers)
     all_graphs[layer_no] = graph
     print("running nsilr mul sota for layer - "+str(layer_no)+
