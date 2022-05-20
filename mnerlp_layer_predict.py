@@ -8,7 +8,7 @@ from sklearn.metrics import roc_auc_score, average_precision_score, recall_score
 
 from multiplex_mnerlp_algo import normalize,cn_weight,pa_weight,jc_weight,\
     aa_weight,ra_weight,local_path_weight,cc_weight,madm_mul,nsilr_mul,\
-    ego_node_edge_mul
+    mnerlp_mul
 
 import time
 import random
@@ -216,7 +216,7 @@ if __name__ == '__main__':
             elif algo == "cc_weight":
                 prob_mat = cc_weight(G)
             elif algo == "mnerlp_mul":
-                prob_mat = ego_node_edge_mul(G)
+                prob_mat = mnerlp_mul(G)
             else:
                 print("unknown algo encountered")
                 sys.exit()
