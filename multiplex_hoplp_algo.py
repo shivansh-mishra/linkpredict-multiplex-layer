@@ -185,7 +185,7 @@ def cc_weight (graph) :
     return common
 
 
-def shopi_weight_log (graph, param=0.01, reg_inf_arr=[3,4]):
+def hoplp_mul (graph, param=0.01, reg_inf_arr=[3,4]):
     ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
     print("shopi weight algorithm with log")
