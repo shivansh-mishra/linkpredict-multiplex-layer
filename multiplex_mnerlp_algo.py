@@ -187,11 +187,11 @@ def cc_weight (graph) :
     return common
 
 
-def ego_node_edge_mul (graph, type = 1, alpha = 0.2, beta = 1.0) :
+def mnerlp_mul (graph, type = 1, alpha = 0.2, beta = 1.0) :
     ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for MNERLP-MUl for link prediction in multiplex networks
 
-    print("running ego node edge mege mul type - "+str(type))
-    print("before actual edge ego merge alpha - "+str(alpha)+ " beta - "+str(beta))
+    print("running mnerlp mul type - "+str(type))
+    print("before actual mnerlp alpha - "+str(alpha)+ " beta - "+str(beta))
     G = graph
     adj = nx.adjacency_matrix(graph).todense()
     common = np.zeros(shape = (len(adj), len(adj)))
@@ -295,7 +295,7 @@ def ego_node_edge_mul (graph, type = 1, alpha = 0.2, beta = 1.0) :
     print("after centrality dict type - " + str(type) + " alpha - " + str(alpha) + " beta - " + str(beta))
     currentDT = datetime.datetime.now()
     print(str(currentDT))
-    print("before non edge ego merge type - " + str(type) + " alpha - " + str(alpha) + " beta - " + str(beta))
+    print("before non edge mnerlp type - " + str(type) + " alpha - " + str(alpha) + " beta - " + str(beta))
     for node1 in G :
         for node2 in G :
             if node1 <= node2 :
@@ -312,7 +312,7 @@ def ego_node_edge_mul (graph, type = 1, alpha = 0.2, beta = 1.0) :
                     if denominator != 0: common[node1][node2] += numerator/denominator
             else :
                 common[node1][node2] = common[node2][node1]
-    print("after all ego merge type - "+str(type)+" alpha - " + str(alpha) + " beta - " + str(beta))
+    print("after all mnerlp type - "+str(type)+" alpha - " + str(alpha) + " beta - " + str(beta))
     return common
 
 
