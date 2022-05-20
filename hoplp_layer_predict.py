@@ -7,7 +7,7 @@ from sklearn.metrics import roc_auc_score, average_precision_score, recall_score
     precision_score, f1_score, precision_recall_curve, accuracy_score, balanced_accuracy_score
 
 from multiplex_hoplp_algo import normalize,cn_weight,pa_weight,jc_weight,aa_weight,\
-    ra_weight,local_path_weight,cc_weight,shopi_weight_log,madm_mul, nsilr_mul
+    ra_weight,local_path_weight,cc_weight, hoplp_mul, madm_mul, nsilr_mul
 
 import time
 import random
@@ -215,7 +215,7 @@ if __name__ == '__main__':
             elif algo == "cc_weight":
                 prob_mat = cc_weight(G)
             elif algo == "hoplp_mul":
-                prob_mat = shopi_weight_log(G)
+                prob_mat = hoplp_mul(G)
             else:
                 print("unknown algo encountered")
                 sys.exit()
