@@ -188,7 +188,7 @@ def cc_weight (graph) :
 def hoplp_mul (graph, param=0.01, reg_inf_arr=[3,4]):
     ##Author-Shivansh Mishra, IIT(BHU) Varanasi, code for HOPLP-MUl for link prediction in multiplex networks
 
-    print("shopi weight algorithm with log")
+    print("hoplp mul")
     adj = nx.adjacency_matrix(graph).todense()
     score = np.zeros((len(adj), len(adj)))
     prev = np.zeros((len(adj), len(adj)))
