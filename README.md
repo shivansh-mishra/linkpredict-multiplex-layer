@@ -1,5 +1,7 @@
 # linkpredict-multiplex-layer
 
+To run layer wise prediction in CLP-MUL, run clp_layer_predict.py.
+
 To run layer wise prediction in MNERLP-MUL, run mnerlp_layer_predict.py. 
 The bibtex citation for paper is as follows - 
 @article{mnerlp_mul,
