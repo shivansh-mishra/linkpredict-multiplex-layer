@@ -3,6 +3,7 @@ import numpy as np
 import math
 import sys
 import datetime
+import random
 
 
 def normalize(n):
@@ -251,7 +252,7 @@ def clp_id_cluster_multiplex(graph, tao=15, theta=0.5, feature_no=0, alpha=0.8):
     print("No. of edges - " + str(len(G.edges())))
     i = 1
     # giving node labels their number by default
-    A = numpy.zeros((len(adj), len(adj)))
+    A = np.zeros((len(adj), len(adj)))
     var_dict['influence'] = A
     # making default value of A as -1, non edge
     for i in range(len(adj)):
@@ -264,7 +265,7 @@ def clp_id_cluster_multiplex(graph, tao=15, theta=0.5, feature_no=0, alpha=0.8):
                 A[node][node_neighbour] = 1
             else:
                 A[node][node_neighbour] = 0
-    node_wt = numpy.zeros(len(adj))
+    node_wt = np.zeros(len(adj))
     var_dict['node_wt'] = node_wt
     # making default value of A as -1, non edge
     for i in range(len(adj)):
@@ -388,7 +389,7 @@ def clp_id_cluster_multiplex(graph, tao=15, theta=0.5, feature_no=0, alpha=0.8):
     print("before close")
     # sys.exit()
     cluster_matrix = np.zeros((len(adj), len(adj)))
-    close = numpy.zeros((len(adj), len(adj)))
+    close = np.zeros((len(adj), len(adj)))
     ds_all = 0
     for node1 in G:
         if node1 %100 == 0:
@@ -510,7 +511,7 @@ def clp_id_cluster_multiplex(graph, tao=15, theta=0.5, feature_no=0, alpha=0.8):
                 if denominator!= 0: common[node1][node2] += numerator / denominator
             else:
                 common[node1][node2] = common[node2][node1]
-    link_pred = numpy.zeros((len(adj), len(adj)))
+    link_pred = np.zeros((len(adj), len(adj)))
     cluster_matrix = common
     link_pred = common
     return link_pred
